@@ -44,7 +44,9 @@ steps:
   # Deploy to Cloud Run
   - name: google/cloud-sdk
     args: ['gcloud', 'run', 'deploy', 'helloworld-${SHORT_SHA}', 
-           '--image=gcr.io/${PROJECT_ID}${_REPO_NAME}/myimage:${SHORT_SHA}']
+           '--image=gcr.io/${PROJECT_ID}${_REPO_NAME}/myimage:${SHORT_SHA}',
+           '--region', 'us-central1', '--platform', 'managed', 
+           '--allow-unauthenticated']
   # [END cloudbuild_python_deploy_yaml]
   
 # [START cloudbuild_python_logs_yaml]
